@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.vinamra</groupId>
     <artifactId>release-demo</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>release-demo</name>
     <description>release-demo</description>
     <properties>
@@ -72,7 +72,7 @@
         <connection>scm:git:https://github.com/vinamra28/release-demo.git</connection>
         <developerConnection>scm:git:https://github.com/vinamra28/release-demo.git</developerConnection>
         <url>https://github.com/vinamra28/release-demo.git</url>
-        <tag>HEAD</tag>
+        <tag>release-demo-0.0.3</tag>
     </scm>
 
 </project>
