@@ -1,0 +1,33 @@
+name: Event Builder Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "The branch to checkout when cutting the release."
+        required: true
+        default: "main"
+      increment-major:
+        description: "Should we increment the major version"
+        required: true
+        default: "false"
+      increment-minor:
+        description: "Should we increment the minor version"
+        required: true
+        default: "false"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Java Maven release
+        uses: qcastel/github-actions-maven-release@v1.12.16
+        env:
+          JAVA_HOME: /usr/lib/jvm/java-1.8-openjdk/
+        with:
+          release-branch-name: "${{ github.event.inputs.branch }}"
+          access-token: ${{ secrets.PUSH_ACCESS_TOKEN }}
+          version-major: ${{ github.event.inputs.increment-major }}
+          version-minor: ${{ github.event.inputs.increment-minor }}
+          gpg-enabled: "false"
